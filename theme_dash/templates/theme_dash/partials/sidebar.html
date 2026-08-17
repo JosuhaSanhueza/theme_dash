@@ -1,0 +1,102 @@
+{% load static %}
+<aside class="vertical-menu">
+  <!-- Sidebar Header with OrionShield Logo -->
+  <div class="sidebar-header">
+    <a href="{% url 'theme_dash:dashboard' %}" class="brand-logo">
+      <!-- OrionShield SVG Logo -->
+      <svg class="brand-icon" viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" fill="url(#orion-shield-grad)"/>
+        <path d="M12 6.5l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4-2.9-2.8 4-.6 1.8-3.6z" fill="#ffffff"/>
+        <defs>
+          <linearGradient id="orion-shield-grad" x1="3" y1="2" x2="21" y2="20" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#556EE6"/>
+            <stop offset="1" stop-color="#34C38F"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="brand-text">OrionShield</span>
+    </a>
+  </div>
+
+  <div class="sidebar-menu-wrapper" id="sidebar-menu-wrapper">
+    <ul class="sidebar-menu">
+      <li class="menu-title">Menú Principal</li>
+      
+      <li class="menu-item {% if active_menu == 'dashboard' %}active{% endif %}">
+        <a href="{% url 'theme_dash:dashboard' %}" class="menu-link" title="Dashboard SaaS">
+          <i class="fa-solid fa-house menu-icon"></i>
+          <span>Dashboard SaaS</span>
+        </a>
+      </li>
+
+      <li class="menu-item {% if active_menu == 'analytics' %}active{% endif %}">
+        <a href="{% url 'theme_dash:analytics' %}" class="menu-link" title="Analíticas">
+          <i class="fa-solid fa-chart-line menu-icon"></i>
+          <span>Analíticas</span>
+        </a>
+      </li>
+
+      <li class="menu-title">Administración SuperAdmin</li>
+
+      <li class="menu-item {% if active_menu == 'superadmin_users' %}active{% endif %}">
+        <a href="{% url 'theme_dash:superadmin_users' %}" class="menu-link" title="Usuarios & Roles">
+          <i class="fa-solid fa-users-gear menu-icon"></i>
+          <span>Usuarios & Roles</span>
+        </a>
+      </li>
+
+      <li class="menu-item {% if active_menu == 'superadmin_logs' %}active{% endif %}">
+        <a href="{% url 'theme_dash:superadmin_logs' %}" class="menu-link" title="Auditoría de Logs">
+          <i class="fa-solid fa-shield-cat menu-icon"></i>
+          <span>Auditoría de Logs</span>
+        </a>
+      </li>
+
+      <li class="menu-title">Aplicaciones SaaS</li>
+
+      <li class="menu-item {% if active_menu == 'projects' %}active{% endif %}">
+        <a href="{% url 'theme_dash:projects' %}" class="menu-link" title="Proyectos & Clientes">
+          <i class="fa-solid fa-diagram-project menu-icon"></i>
+          <span>Proyectos & Clientes</span>
+        </a>
+      </li>
+
+      <li class="menu-title">Componentes UI</li>
+
+      <li class="menu-item {% if active_menu == 'tables' %}active{% endif %}">
+        <a href="{% url 'theme_dash:tables' %}" class="menu-link" title="Tablas de Datos">
+          <i class="fa-solid fa-table-cells menu-icon"></i>
+          <span>Tablas de Datos</span>
+        </a>
+      </li>
+
+      <li class="menu-item {% if active_menu == 'forms' %}active{% endif %}">
+        <a href="{% url 'theme_dash:forms' %}" class="menu-link" title="Formularios & Ajustes">
+          <i class="fa-solid fa-sliders menu-icon"></i>
+          <span>Formularios & Ajustes</span>
+        </a>
+      </li>
+
+      <li class="menu-item {% if active_menu == 'starter' %}active{% endif %}">
+        <a href="{% url 'theme_dash:starter' %}" class="menu-link" title="Página Starter">
+          <i class="fa-regular fa-file menu-icon"></i>
+          <span>Página Starter (En Blanco)</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Button 'Ver Más' / Scroll down inside sidebar menu -->
+    <button class="btn-sidebar-more" id="btn-sidebar-more" title="Ver más opciones">
+      <i class="fa-solid fa-chevron-down"></i>
+      <span class="more-text">Ver más</span>
+    </button>
+  </div>
+
+  <!-- Sidebar Footer with Bottom Toggle Button -->
+  <div class="sidebar-footer">
+    <button class="btn-sidebar-toggle" id="sidebar-toggle" title="Contraer/Expandir Menú">
+      <i class="fa-solid fa-indent toggle-icon"></i>
+      <span class="toggle-text">Contraer Menú</span>
+    </button>
+  </div>
+</aside>

@@ -1,0 +1,120 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Auditoría de Logs de Seguridad (SuperAdmin){% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<!-- Filter & Search Header with coherent spacing -->
+<div class="row" style="margin-bottom: 1.5rem;">
+  <div class="col-12" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div style="display: flex; gap: 0.5rem;">
+      <button class="badge badge-primary" style="padding: 0.6rem 1rem; border: none; cursor: pointer;">Todos los Logs</button>
+      <button class="badge badge-danger" style="padding: 0.6rem 1rem; border: none; cursor: pointer;">Alertas de Seguridad (4)</button>
+      <button class="badge badge-success" style="padding: 0.6rem 1rem; border: none; cursor: pointer;">Inicios de Sesión</button>
+      <button class="badge badge-info" style="padding: 0.6rem 1rem; border: none; cursor: pointer;">Cambios de Roles</button>
+    </div>
+
+    <div style="display: flex; gap: 0.5rem; align-items: center;">
+      <input type="text" class="form-control" placeholder="Buscar en logs por IP o usuario..." style="width: 240px; padding: 0.4rem 0.8rem; font-size: 0.825rem;">
+      <button class="badge badge-primary" style="padding: 0.6rem 1rem; border: none; cursor: pointer;">
+        <i class="fa-solid fa-download"></i> Exportar Audit Log
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Logs Table Card -->
+<div class="row">
+  <div class="col-12">
+    <div class="card" style="margin-top: 0.5rem;">
+      <div class="card-header">
+        <h5 class="card-title"><i class="fa-solid fa-shield-cat text-primary"></i> Registro de Eventos y Auditoría de Seguridad</h5>
+        <span class="badge badge-success"><i class="fa-solid fa-circle"></i> Log en Tiempo Real</span>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Marca de Tiempo</th>
+                <th>Usuario / Actor</th>
+                <th>Acción / Evento</th>
+                <th>Dirección IP</th>
+                <th>Módulo Afectado</th>
+                <th>Nivel de Riesgo</th>
+                <th>Detalles</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>16 Ago, 2026 21:28:14</strong></td>
+                <td>
+                  <strong>Josuha Developer</strong>
+                  <small class="text-muted" style="display:block;">josuha@orionshield.io</small>
+                </td>
+                <td><i class="fa-solid fa-user-shield text-danger"></i> Cambio de Rol de Usuario</td>
+                <td><code>192.168.1.45</code></td>
+                <td>SuperAdmin / RBAC</td>
+                <td><span class="badge badge-danger">Alto</span></td>
+                <td>Asignó rol SuperAdmin a usuario #1042</td>
+              </tr>
+
+              <tr>
+                <td><strong>16 Ago, 2026 21:15:02</strong></td>
+                <td>
+                  <strong>Sistema Automatizado</strong>
+                  <small class="text-muted" style="display:block;">system@orionshield.io</small>
+                </td>
+                <td><i class="fa-solid fa-right-to-bracket text-primary"></i> Autenticación de Usuario</td>
+                <td><code>186.105.22.10</code></td>
+                <td>Google OAuth 2.0</td>
+                <td><span class="badge badge-success">Bajo</span></td>
+                <td>Inicio de sesión exitoso mediante Google SSO</td>
+              </tr>
+
+              <tr>
+                <td><strong>16 Ago, 2026 20:45:30</strong></td>
+                <td>
+                  <strong>Desconocido / Bot</strong>
+                  <small class="text-muted" style="display:block;">IP No Authenticada</small>
+                </td>
+                <td><i class="fa-solid fa-triangle-exclamation text-warning"></i> Intento Fallido de Login</td>
+                <td><code>45.142.120.99</code></td>
+                <td>Auth / Endpoint API</td>
+                <td><span class="badge badge-warning">Medio</span></td>
+                <td>3 intentos fallidos de clave para admin@empresa.com</td>
+              </tr>
+
+              <tr>
+                <td><strong>16 Ago, 2026 19:30:11</strong></td>
+                <td>
+                  <strong>María Gómez</strong>
+                  <small class="text-muted" style="display:block;">maria.gomez@techcorp.com</small>
+                </td>
+                <td><i class="fa-solid fa-pen-to-square text-info"></i> Modificación de Proyecto</td>
+                <td><code>190.45.12.8</code></td>
+                <td>Módulo Proyectos</td>
+                <td><span class="badge badge-info">Informativo</span></td>
+                <td>Actualizó estado de proyecto #ORD-7391 a completado</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1.5rem; font-size: 0.825rem; color: var(--text-muted);">
+          <div>Mostrando 4 de 1,480 eventos registrados</div>
+          <div style="display: flex; gap: 0.3rem;">
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">Anterior</button>
+            <button class="badge badge-primary" style="border: none;">1</button>
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">2</button>
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

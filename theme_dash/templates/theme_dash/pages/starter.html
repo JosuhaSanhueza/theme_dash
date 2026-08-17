@@ -1,0 +1,38 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Página en Blanco (Starter){% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<!-- Contenedor en Blanco listo para tus nuevos desarrollos -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Título de la Tarjeta</h5>
+      </div>
+      <div class="card-body">
+        <p class="text-muted">
+          Esta es una plantilla completamente en blanco estructurada con la grilla y estilos del tema Skote.
+          Puedes copiar este archivo para crear cualquier nueva vista en tu aplicación Django.
+        </p>
+        
+        <div style="padding: 1.5rem; background-color: var(--primary-subtle); border-radius: var(--radius); border: 1px dashed var(--primary); margin-top: 1rem;">
+          <h6 style="color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">
+            <i class="fa-solid fa-code"></i> Cómo usar en tus vistas de Django:
+          </h6>
+          <code style="font-size: 0.85rem; color: var(--text-heading);">
+            {% filter force_escape %}{% extends "theme_dash/base.html" %}
+{% block title %}Mi Nueva Funcionalidad{% endblock %}
+{% block content %}
+    <!-- Agrega aquí tu código HTML y modelos de Django -->
+{% endblock %}{% endfilter %}
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

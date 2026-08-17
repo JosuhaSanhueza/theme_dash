@@ -1,0 +1,299 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Gestión de Usuarios & Roles (SuperAdmin){% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<!-- Summary Widgets -->
+<div class="row" style="margin-bottom: 1.5rem;">
+  <div class="col-md-3">
+    <div class="card" style="height: 100%; min-height: 110px; margin-bottom: 0;">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between; height: 100%;">
+        <div>
+          <div class="stat-label">Usuarios Registrados</div>
+          <div class="stat-value">1,248</div>
+          <div class="badge badge-success mt-2"><i class="fa-solid fa-user-check"></i> 1,180 Activos</div>
+        </div>
+        <div class="mini-stat-icon primary">
+          <i class="fa-solid fa-users"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card" style="height: 100%; min-height: 110px; margin-bottom: 0;">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between; height: 100%;">
+        <div>
+          <div class="stat-label">Super Administradores</div>
+          <div class="stat-value">4</div>
+          <div class="badge badge-primary mt-2"><i class="fa-solid fa-shield"></i> Acceso Total</div>
+        </div>
+        <div class="mini-stat-icon danger">
+          <i class="fa-solid fa-user-shield"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card" style="height: 100%; min-height: 110px; margin-bottom: 0;">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between; height: 100%;">
+        <div>
+          <div class="stat-label">Roles Definidos</div>
+          <div class="stat-value">5 Roles</div>
+          <div class="badge badge-info mt-2"><i class="fa-solid fa-lock"></i> RBAC Configurado</div>
+        </div>
+        <div class="mini-stat-icon warning">
+          <i class="fa-solid fa-key"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="card" style="height: 100%; min-height: 110px; margin-bottom: 0;">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between; height: 100%;">
+        <div>
+          <div class="stat-label">Solicitudes Pendientes</div>
+          <div class="stat-value">12</div>
+          <div class="badge badge-warning mt-2"><i class="fa-solid fa-clock"></i> Por Aprobar</div>
+        </div>
+        <div class="mini-stat-icon success">
+          <i class="fa-solid fa-user-clock"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main User Management Table -->
+<div class="row">
+  <div class="col-12">
+    <div class="card" style="margin-top: 0.5rem;">
+      <div class="card-header">
+        <h5 class="card-title">Directorio de Usuarios y Control de Acceso</h5>
+        <button class="badge badge-primary" onclick="openModal('create-user-modal')" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; border: none; cursor: pointer;">
+          <i class="fa-solid fa-user-plus"></i> Crear Nuevo Usuario
+        </button>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Rol de Sistema</th>
+                <th>Organización / SaaS</th>
+                <th>Estado</th>
+                <th>Última Conexión</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Admin+Orion&background=556ee6&color=fff" style="width: 34px; height: 34px; border-radius: 50%;">
+                    <div>
+                      <strong>Josuha Developer</strong>
+                      <small class="text-muted" style="display: block;">@josuha.dev</small>
+                    </div>
+                  </div>
+                </td>
+                <td>josuha@orionshield.io</td>
+                <td><span class="badge badge-danger"><i class="fa-solid fa-user-gear"></i> SuperAdmin</span></td>
+                <td>OrionShield Core</td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td>Hace 5 mins</td>
+                <td>
+                  <button class="btn-icon" title="Editar Rol & Permisos" onclick="openModal('edit-user-modal')"><i class="fa-solid fa-user-pen"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar Usuario" onclick="openModal('delete-user-modal')"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Maria+Gomez&background=34c38f&color=fff" style="width: 34px; height: 34px; border-radius: 50%;">
+                    <div>
+                      <strong>María Gómez</strong>
+                      <small class="text-muted" style="display: block;">@maria.gomez</small>
+                    </div>
+                  </div>
+                </td>
+                <td>maria.gomez@techcorp.com</td>
+                <td><span class="badge badge-primary"><i class="fa-solid fa-user-shield"></i> Admin Tenant</span></td>
+                <td>TechCorp SaaS</td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td>Hace 2 horas</td>
+                <td>
+                  <button class="btn-icon" title="Editar Rol & Permisos" onclick="openModal('edit-user-modal')"><i class="fa-solid fa-user-pen"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar Usuario" onclick="openModal('delete-user-modal')"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Carlos+Vargas&background=f1b44c&color=fff" style="width: 34px; height: 34px; border-radius: 50%;">
+                    <div>
+                      <strong>Carlos Vargas</strong>
+                      <small class="text-muted" style="display: block;">@carlos.vargas</small>
+                    </div>
+                  </div>
+                </td>
+                <td>carlos.vargas@fintech.cl</td>
+                <td><span class="badge badge-info"><i class="fa-solid fa-user"></i> Editor</span></td>
+                <td>Fintech Global</td>
+                <td><span class="badge badge-warning">Suspendido</span></td>
+                <td>Hace 3 días</td>
+                <td>
+                  <button class="btn-icon" title="Editar Rol & Permisos" onclick="openModal('edit-user-modal')"><i class="fa-solid fa-user-pen"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar Usuario" onclick="openModal('delete-user-modal')"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 1: Crear Usuario -->
+<div class="modal-backdrop" id="create-user-modal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h5 class="modal-title"><i class="fa-solid fa-user-plus text-primary"></i> Crear Nuevo Usuario</h5>
+      <button class="modal-close" onclick="closeModal('create-user-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="create-user-form">
+        <div class="form-group">
+          <label class="form-label">Nombre Completo</label>
+          <input type="text" class="form-control" placeholder="Ej. Roberto Fernández" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" placeholder="roberto@empresa.com" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label">Rol Asignado</label>
+              <select class="form-control">
+                <option value="superadmin">SuperAdmin</option>
+                <option value="admin">Admin Tenant</option>
+                <option value="editor" selected>Editor</option>
+                <option value="viewer">Visualizador</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label class="form-label">Estado Inicial</label>
+              <select class="form-control">
+                <option value="active">Activo</option>
+                <option value="pending">Pendiente</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Contraseña Temporal</label>
+          <input type="password" class="form-control" placeholder="••••••••" required value="Temporal123!">
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="form-control" style="width: auto;" onclick="closeModal('create-user-modal')">Cancelar</button>
+      <button class="badge badge-primary" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('create-user-modal')">Crear Usuario</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2: Editar Usuario / Rol -->
+<div class="modal-backdrop" id="edit-user-modal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h5 class="modal-title"><i class="fa-solid fa-user-pen text-primary"></i> Modificar Usuario & Permisos</h5>
+      <button class="modal-close" onclick="closeModal('edit-user-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label class="form-label">Usuario</label>
+          <input type="text" class="form-control" value="Josuha Developer" readonly style="background-color: var(--bg-body);">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Rol de Seguridad (RBAC)</label>
+          <select class="form-control">
+            <option value="superadmin" selected>SuperAdmin (Acceso Total)</option>
+            <option value="admin">Admin Tenant (Gestión Local)</option>
+            <option value="editor">Editor (Crear / Modificar)</option>
+            <option value="viewer">Visualizador (Solo Lectura)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Permisos Especiales</label>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.4rem;">
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+              <input type="checkbox" checked> Acceso a Auditoría de Logs
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+              <input type="checkbox" checked> Exportación de Reportes PDF/CSV
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+              <input type="checkbox" checked> Modificación de Ajustes Globales
+            </label>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button class="form-control" style="width: auto;" onclick="closeModal('edit-user-modal')">Cancelar</button>
+      <button class="badge badge-primary" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('edit-user-modal')">Guardar Cambios</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3: Confirmar Eliminación -->
+<div class="modal-backdrop" id="delete-user-modal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h5 class="modal-title text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Confirmar Eliminación</h5>
+      <button class="modal-close" onclick="closeModal('delete-user-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="color: var(--text-heading); font-size: 0.9rem;">
+        ¿Estás seguro de que deseas eliminar este usuario del sistema?
+      </p>
+      <small class="text-muted" style="display: block; margin-top: 0.5rem;">
+        Esta acción revocará los permisos de acceso inmediatamente y quedará registrada en la Auditoría de Logs.
+      </small>
+    </div>
+    <div class="modal-footer">
+      <button class="form-control" style="width: auto;" onclick="closeModal('delete-user-modal')">Cancelar</button>
+      <button class="badge badge-danger" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('delete-user-modal')">Eliminar Definitivamente</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('show');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('show');
+  }
+</script>
+{% endblock %}

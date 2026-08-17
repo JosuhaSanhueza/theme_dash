@@ -1,0 +1,129 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Tablas de Datos Interactivas{% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Gestión de Clientes & Membresías</h5>
+        <div style="display: flex; gap: 0.5rem;">
+          <input type="text" class="form-control" placeholder="Filtrar por nombre..." style="width: 200px; padding: 0.35rem 0.75rem; font-size: 0.8rem;">
+          <button class="badge badge-primary" style="border: none; cursor: pointer;">Exportar CSV</button>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th style="width: 40px;"><input type="checkbox"></th>
+                <th>Usuario</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Plan Actual</th>
+                <th>Última Conexión</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Laura+Torres&background=556ee6&color=fff" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div><strong>Laura Torres</strong></div>
+                  </div>
+                </td>
+                <td>laura.torres@empresa.com</td>
+                <td>Administrador</td>
+                <td>SaaS Enterprise</td>
+                <td>Hace 2 horas</td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td>
+                  <button class="btn-icon" title="Editar"><i class="fa-regular fa-pen-to-square"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Diego+Ramos&background=34c38f&color=fff" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div><strong>Diego Ramos</strong></div>
+                  </div>
+                </td>
+                <td>diego.ramos@startup.io</td>
+                <td>Editor</td>
+                <td>SaaS Pro Plan</td>
+                <td>Hace 1 día</td>
+                <td><span class="badge badge-success">Activo</span></td>
+                <td>
+                  <button class="btn-icon" title="Editar"><i class="fa-regular fa-pen-to-square"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Elena+Rios&background=f46565&color=fff" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div><strong>Elena Ríos</strong></div>
+                  </div>
+                </td>
+                <td>elena.rios@consultora.cl</td>
+                <td>Visualizador</td>
+                <td>Free Trial</td>
+                <td>Hace 5 días</td>
+                <td><span class="badge badge-warning">Pendiente</span></td>
+                <td>
+                  <button class="btn-icon" title="Editar"><i class="fa-regular fa-pen-to-square"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+
+              <tr>
+                <td><input type="checkbox"></td>
+                <td>
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <img src="https://ui-avatars.com/api/?name=Martin+Sosa&background=74788d&color=fff" style="width: 32px; height: 32px; border-radius: 50%;">
+                    <div><strong>Martín Sosa</strong></div>
+                  </div>
+                </td>
+                <td>martin.sosa@tech.com</td>
+                <td>Sin asignación</td>
+                <td>Cancelado</td>
+                <td>Hace 1 mes</td>
+                <td><span class="badge badge-danger">Inactivo</span></td>
+                <td>
+                  <button class="btn-icon" title="Editar"><i class="fa-regular fa-pen-to-square"></i></button>
+                  <button class="btn-icon text-danger" title="Eliminar"><i class="fa-regular fa-trash-can"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Pagination -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; font-size: 0.825rem; color: var(--text-muted);">
+          <div>Mostrando 1 a 4 de 28 registros</div>
+          <div style="display: flex; gap: 0.3rem;">
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">Anterior</button>
+            <button class="badge badge-primary" style="border: none;">1</button>
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">2</button>
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">3</button>
+            <button class="form-control" style="width: auto; padding: 0.3rem 0.6rem;">Siguiente</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

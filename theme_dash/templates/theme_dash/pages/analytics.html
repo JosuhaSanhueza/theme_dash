@@ -1,0 +1,74 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Analíticas & Métricas SaaS{% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<div class="row">
+  <!-- Traffic Chart -->
+  <div class="col-md-5">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Fuentes de Tráfico</h5>
+      </div>
+      <div class="card-body">
+        <div style="height: 260px; position: relative;">
+          <canvas id="trafficChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Funnel Stats -->
+  <div class="col-md-7">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Embudo de Conversión (Este Mes)</h5>
+      </div>
+      <div class="card-body">
+        <div style="margin-bottom: 1.2rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+            <span class="form-label">Visitas Totales a la Landing</span>
+            <strong>142,500 visitas</strong>
+          </div>
+          <div style="height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden;">
+            <div style="width: 100%; height: 100%; background-color: var(--primary);"></div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.2rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+            <span class="form-label">Registros de Pruebas Gratis (Trial)</span>
+            <strong>18,400 usuarios (12.9%)</strong>
+          </div>
+          <div style="height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden;">
+            <div style="width: 65%; height: 100%; background-color: var(--info);"></div>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 1.2rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+            <span class="form-label">Conversión a Suscripción de Pago</span>
+            <strong>3,250 clientes (17.6%)</strong>
+          </div>
+          <div style="height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden;">
+            <div style="width: 40%; height: 100%; background-color: var(--success);"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+            <span class="form-label">Tasa de Retención (Month 3)</span>
+            <strong>88.4% retención</strong>
+          </div>
+          <div style="height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden;">
+            <div style="width: 88%; height: 100%; background-color: var(--warning);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

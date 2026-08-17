@@ -1,0 +1,218 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard SaaS Principal{% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<!-- Welcome Widget Banner -->
+<div class="row" style="margin-bottom: 1.5rem;">
+  <div class="col-12">
+    <div class="welcome-widget">
+      <div class="welcome-text">
+        <h3>¡Bienvenido de nuevo, Administrador! 👋</h3>
+        <p>Aquí tienes el resumen general de rendimiento de tu plataforma SaaS este mes.</p>
+      </div>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <div class="badge badge-success" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+          <i class="fa-solid fa-arrow-trend-up"></i> +18.4% Crecimiento
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- KPI Mini Stat Cards -->
+<div class="row">
+  <!-- Card 1: Órdenes -->
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div class="stat-label">Órdenes Totales</div>
+          <div class="stat-value">1,429</div>
+          <div class="badge badge-success mt-2">
+            <i class="fa-solid fa-arrow-up"></i> +12.5% vs mes anterior
+          </div>
+        </div>
+        <div class="mini-stat-icon primary">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 2: Ingresos -->
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div class="stat-label">Ingresos Mensuales</div>
+          <div class="stat-value">$64,800</div>
+          <div class="badge badge-success mt-2">
+            <i class="fa-solid fa-arrow-up"></i> +8.2% incremento
+          </div>
+        </div>
+        <div class="mini-stat-icon success">
+          <i class="fa-solid fa-dollar-sign"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Precio Promedio -->
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div class="stat-label">Ticket Promedio</div>
+          <div class="stat-value">$16.20</div>
+          <div class="badge badge-warning mt-2">
+            <i class="fa-solid fa-minus"></i> 0.0% estable
+          </div>
+        </div>
+        <div class="mini-stat-icon warning">
+          <i class="fa-solid fa-tag"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 4: Usuarios Activos -->
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body" style="display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <div class="stat-label">Usuarios Activos</div>
+          <div class="stat-value">9,842</div>
+          <div class="badge badge-success mt-2">
+            <i class="fa-solid fa-arrow-up"></i> +24.1% crecimiento
+          </div>
+        </div>
+        <div class="mini-stat-icon danger">
+          <i class="fa-solid fa-users"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Charts & Activity Row -->
+<div class="row">
+  <!-- Main Earnings Chart -->
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Resumen de Ingresos & Gastos (2026)</h5>
+        <div class="badge badge-primary">Actualizado hoy</div>
+      </div>
+      <div class="card-body">
+        <div style="height: 300px; position: relative;">
+          <canvas id="earningsChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Activity Timeline -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Actividad Reciente</h5>
+      </div>
+      <div class="card-body">
+        <ul class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-date">10:42 AM</div>
+            <div class="timeline-title">Pago Recibido #ORD-8492</div>
+            <small class="text-muted">Cliente: Empresa Acme Corp ($299.00)</small>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">09:15 AM</div>
+            <div class="timeline-title">Nuevo Usuario Registrado</div>
+            <small class="text-muted">usuario.dev@empresa.com creó una cuenta</small>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">Ayer 18:30</div>
+            <div class="timeline-title">Actualización de Sistema v2.4</div>
+            <small class="text-muted">Despliegue automático exitoso</small>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">Ayer 14:10</div>
+            <div class="timeline-title">Ticket de Soporte Resuelto</div>
+            <small class="text-muted">Resuelto por Agente Soporte #4</small>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Transactions Data Table -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Últimas Transacciones SaaS</h5>
+        <a href="{% url 'theme_dash:tables' %}" class="badge badge-primary">Ver Todas</a>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID Orden</th>
+                <th>Cliente</th>
+                <th>Plan SaaS</th>
+                <th>Fecha</th>
+                <th>Monto</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>#SK-7391</strong></td>
+                <td>Carlos Mendoza</td>
+                <td>Enterprise Annual</td>
+                <td>16 Ago, 2026</td>
+                <td>$1,200.00</td>
+                <td><span class="badge badge-success"><i class="fa-solid fa-circle-check"></i> Pagado</span></td>
+                <td><button class="btn-icon" style="width:28px; height:28px;"><i class="fa-solid fa-ellipsis-vertical"></i></button></td>
+              </tr>
+              <tr>
+                <td><strong>#SK-7390</strong></td>
+                <td>Ana María Silva</td>
+                <td>Pro Monthly</td>
+                <td>16 Ago, 2026</td>
+                <td>$49.00</td>
+                <td><span class="badge badge-success"><i class="fa-solid fa-circle-check"></i> Pagado</span></td>
+                <td><button class="btn-icon" style="width:28px; height:28px;"><i class="fa-solid fa-ellipsis-vertical"></i></button></td>
+              </tr>
+              <tr>
+                <td><strong>#SK-7389</strong></td>
+                <td>Tech Solutions Inc</td>
+                <td>Startup Plan</td>
+                <td>15 Ago, 2026</td>
+                <td>$199.00</td>
+                <td><span class="badge badge-warning"><i class="fa-solid fa-clock"></i> Pendiente</span></td>
+                <td><button class="btn-icon" style="width:28px; height:28px;"><i class="fa-solid fa-ellipsis-vertical"></i></button></td>
+              </tr>
+              <tr>
+                <td><strong>#SK-7388</strong></td>
+                <td>Roberto Gómez</td>
+                <td>Basic Monthly</td>
+                <td>15 Ago, 2026</td>
+                <td>$19.00</td>
+                <td><span class="badge badge-danger"><i class="fa-solid fa-xmark"></i> Reembolsado</span></td>
+                <td><button class="btn-icon" style="width:28px; height:28px;"><i class="fa-solid fa-ellipsis-vertical"></i></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

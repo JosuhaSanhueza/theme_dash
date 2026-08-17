@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Cuenta | OrionShield SaaS Theme</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/components.css' %}">
+  <style>
+    body {
+      background-color: var(--bg-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1.5rem;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 460px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .auth-header {
+      background: linear-gradient(135deg, var(--success) 0%, #208761 100%);
+      padding: 2.5rem 2rem 2rem;
+      color: white;
+      text-align: center;
+    }
+    .auth-body {
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-card">
+  <div class="auth-header">
+    <div style="display: inline-flex; width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 0.8rem;">
+      <i class="fa-solid fa-shield-halved" style="font-size: 1.5rem;"></i>
+    </div>
+    <h3 style="font-weight: 700; font-size: 1.3rem;">Crear Cuenta de Gratis</h3>
+    <p style="font-size: 0.85rem; opacity: 0.85; margin-top: 0.2rem;">Obtén 14 días de prueba sin tarjeta de crédito</p>
+  </div>
+
+  <div class="auth-body">
+    <form action="{% url 'theme_dash:dashboard' %}" method="get">
+      <div class="form-group">
+        <label class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" placeholder="Ej. Juan Pérez" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Correo Electrónico Corporativo</label>
+        <input type="email" class="form-control" placeholder="nombre@tuempresa.com" required>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Contraseña</label>
+        <input type="password" class="form-control" placeholder="Mínimo 8 caracteres" required>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+        <input type="checkbox" id="terms" required checked>
+        <label for="terms" style="font-size: 0.8rem; color: var(--text-muted);">
+          Acepto los <a href="#">Términos de Servicio</a> y la <a href="#">Política de Privacidad</a>
+        </label>
+      </div>
+
+      <button type="submit" class="badge badge-success" style="width: 100%; justify-content: center; padding: 0.75rem; font-size: 0.9rem; border: none; cursor: pointer;">
+        Comenzar Prueba Gratis
+      </button>
+
+      <div style="text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">
+        ¿Ya tienes una cuenta registrada? <a href="{% url 'theme_dash:login' %}" style="font-weight: 600;">Inicia sesión</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

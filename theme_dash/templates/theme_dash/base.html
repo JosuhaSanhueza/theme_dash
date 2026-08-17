@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}OrionShield SaaS Dashboard{% endblock %} | Theme Dash</title>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Theme Core Stylesheets -->
+  <link rel="stylesheet" href="{% static 'theme_dash/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/components.css' %}">
+  
+  <!-- Inline script to set saved sidebar and theme states BEFORE render to prevent F5 flicker -->
+  <script>
+    (function() {
+      var savedSidebar = localStorage.getItem('orion_sidebar');
+      if (savedSidebar === 'collapsed') {
+        document.documentElement.classList.add('sidebar-collapsed-init');
+      }
+      var savedTheme = localStorage.getItem('orion_theme');
+      if (savedTheme) {
+        document.documentElement.setAttribute('data-bs-theme', savedTheme);
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="layout-wrapper">
+    <!-- Topbar Header -->
+    {% block header %}
+      {% include "theme_dash/partials/header.html" %}
+    {% endblock %}
+
+    <!-- Vertical Navigation Sidebar -->
+    {% block sidebar %}
+      {% include "theme_dash/partials/sidebar.html" %}
+    {% endblock %}
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+      <div class="page-content">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+      <!-- Footer -->
+      {% block footer %}
+        {% include "theme_dash/partials/footer.html" %}
+      {% endblock %}
+    </div>
+  </div>
+
+  <!-- Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Theme Core Scripts -->
+  <script src="{% static 'theme_dash/js/app.js' %}"></script>
+  <script src="{% static 'theme_dash/js/charts.js' %}"></script>
+  
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

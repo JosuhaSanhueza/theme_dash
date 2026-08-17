@@ -1,0 +1,79 @@
+{% load static %}
+<header class="topbar">
+  <div class="topbar-left">
+    <!-- Global Search Bar -->
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      <input type="text" placeholder="Buscar en el sistema...">
+    </div>
+  </div>
+
+  <div class="topbar-right">
+    <!-- Dark / Light Theme Toggle -->
+    <button class="btn-icon" id="theme-toggle-btn" title="Cambiar Modo Claro/Oscuro">
+      <i class="fa-solid fa-moon theme-icon"></i>
+    </button>
+
+    <!-- Notifications Dropdown -->
+    <div class="topbar-item">
+      <button class="btn-icon" data-toggle="dropdown" data-target="notifications-dropdown" title="Notificaciones">
+        <i class="fa-regular fa-bell"></i>
+        <span class="badge-counter">3</span>
+      </button>
+
+      <div class="dropdown-menu" id="notifications-dropdown">
+        <div class="dropdown-header">Notificaciones Recientes</div>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">
+          <i class="fa-solid fa-shopping-cart text-primary"></i>
+          <div>
+            <div><strong>Nueva Suscripción Pro</strong></div>
+            <small class="text-muted">Hace 5 minutos</small>
+          </div>
+        </a>
+        <a class="dropdown-item" href="#">
+          <i class="fa-solid fa-user-plus text-success"></i>
+          <div>
+            <div><strong>Nuevo Usuario Registrado</strong></div>
+            <small class="text-muted">Hace 15 minutos</small>
+          </div>
+        </a>
+        <a class="dropdown-item" href="#">
+          <i class="fa-solid fa-triangle-exclamation text-warning"></i>
+          <div>
+            <div><strong>Alerta de Servidor 92% CPU</strong></div>
+            <small class="text-muted">Hace 1 hora</small>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- User Profile Dropdown (Con opción de Autenticación) -->
+    <div class="topbar-item">
+      <button class="user-profile-btn" data-toggle="dropdown" data-target="user-dropdown">
+        <img src="https://ui-avatars.com/api/?name=Admin+User&background=556ee6&color=fff" alt="Avatar" class="avatar-img">
+        <span class="user-name">Administrador</span>
+        <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; color: var(--text-muted);"></i>
+      </button>
+
+      <div class="dropdown-menu" id="user-dropdown">
+        <div class="dropdown-header">Opciones de Usuario</div>
+        <a class="dropdown-item" href="{% url 'theme_dash:starter' %}">
+          <i class="fa-regular fa-user"></i> Mi Perfil
+        </a>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-header">Autenticación</div>
+        <a class="dropdown-item" href="{% url 'theme_dash:login' %}">
+          <i class="fa-solid fa-right-to-bracket text-primary"></i> Iniciar Sesión (Login)
+        </a>
+        <a class="dropdown-item" href="{% url 'theme_dash:register' %}">
+          <i class="fa-solid fa-user-plus text-success"></i> Registrar Cuenta
+        </a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item text-danger" href="{% url 'theme_dash:login' %}">
+          <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

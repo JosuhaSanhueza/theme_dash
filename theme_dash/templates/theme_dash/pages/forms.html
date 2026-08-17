@@ -1,0 +1,101 @@
+{% extends "theme_dash/base.html" %}
+{% load static %}
+
+{% block title %}Elementos de Formulario & Ajustes{% endblock %}
+
+{% block content %}
+{% include "theme_dash/partials/breadcrumbs.html" %}
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Configuración General del SaaS</h5>
+      </div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label class="form-label">Nombre de la Aplicación</label>
+            <input type="text" class="form-control" value="MiPlataforma SaaS Pro">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Correo de Soporte Técnico</label>
+            <input type="email" class="form-control" value="soporte@miplataforma.com">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Zona Horaria Predeterminada</label>
+            <select class="form-control">
+              <option>(UTC-05:00) Bogotá, Lima, Quito, Santiago</option>
+              <option>(UTC-04:00) Caracas, La Paz</option>
+              <option>(UTC-03:00) Buenos Aires, Montevideo</option>
+              <option>(UTC+00:00) Tiempo Universal Coordinado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Descripción del Servicio</label>
+            <textarea class="form-control" rows="3">Plataforma integral de gestión de proyectos y facturación SaaS para empresas en crecimiento.</textarea>
+          </div>
+
+          <button type="button" class="badge badge-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem; border: none; cursor: pointer;">
+            Guardar Cambios
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Controles & Switches de Estado</h5>
+      </div>
+      <div class="card-body">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid var(--border-color);">
+          <div>
+            <div style="font-weight: 600; color: var(--text-heading);">Notificaciones por Email</div>
+            <small class="text-muted">Enviar resumen semanal de ingresos</small>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid var(--border-color);">
+          <div>
+            <div style="font-weight: 600; color: var(--text-heading);">Modo de Mantenimiento</div>
+            <small class="text-muted">Desactivar acceso público temporalmente</small>
+          </div>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0;">
+          <div>
+            <div style="font-weight: 600; color: var(--text-heading);">Autenticación de 2 Factores (2FA)</div>
+            <small class="text-muted">Requerir código de seguridad al iniciar sesión</small>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="form-group mt-4">
+          <label class="form-label">Subir Logotipo de la Empresa</label>
+          <div style="border: 2px dashed var(--border-color); border-radius: var(--radius); padding: 2rem; text-align: center; background-color: var(--bg-body); cursor: pointer;">
+            <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
+            <div style="font-weight: 600; color: var(--text-heading);">Arrastra y suelta tu archivo aquí</div>
+            <small class="text-muted">Soporta PNG, SVG, JPG (Máx. 2MB)</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

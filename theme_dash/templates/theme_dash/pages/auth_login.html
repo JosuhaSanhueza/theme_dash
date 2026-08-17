@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión | OrionShield SaaS Theme</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/components.css' %}">
+  <style>
+    body {
+      background-color: var(--bg-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+    .auth-card {
+      width: 100%;
+      max-width: 400px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .auth-header {
+      background: linear-gradient(135deg, var(--primary) 0%, #3b4cb8 100%);
+      padding: 1.25rem 1.5rem 1rem;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .auth-body {
+      padding: 1.25rem 1.5rem;
+    }
+    .btn-google {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background-color: var(--bg-card);
+      color: var(--text-heading);
+      border: 1px solid var(--border-color);
+      padding: 0.55rem;
+      border-radius: var(--radius);
+      font-size: 0.825rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+    .btn-google:hover {
+      background-color: var(--primary-subtle);
+      border-color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-card">
+  <!-- Compact Header Banner -->
+  <div class="auth-header">
+    <div style="display: inline-flex; width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; align-items: center; justify-content: center; margin-bottom: 0.4rem;">
+      <i class="fa-solid fa-shield-halved" style="font-size: 1.1rem;"></i>
+    </div>
+    <h3 style="font-weight: 700; font-size: 1.1rem;">¡Bienvenido de Nuevo!</h3>
+    <p style="font-size: 0.775rem; opacity: 0.85; margin-top: 0.1rem;">Inicia sesión en OrionShield SaaS</p>
+  </div>
+
+  <div class="auth-body">
+    <form action="{% url 'theme_dash:dashboard' %}" method="get">
+      <div class="form-group" style="margin-bottom: 0.9rem;">
+        <label class="form-label" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Correo Electrónico</label>
+        <input type="email" class="form-control" placeholder="admin@empresa.com" required value="admin@empresa.com" style="padding: 0.45rem 0.75rem;">
+      </div>
+
+      <div class="form-group" style="margin-bottom: 0.9rem;">
+        <label class="form-label" style="font-size: 0.8rem; margin-bottom: 0.25rem;">Contraseña</label>
+        <input type="password" class="form-control" placeholder="••••••••" required value="12345678" style="padding: 0.45rem 0.75rem;">
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 1.1rem;">
+        <div style="display: flex; align-items: center; gap: 0.4rem;">
+          <input type="checkbox" id="remember" checked>
+          <label for="remember" style="font-size: 0.775rem; color: var(--text-muted);">Recordar esta sesión</label>
+        </div>
+        <a href="#" style="font-size: 0.75rem;">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <button type="submit" class="badge badge-primary" style="width: 100%; justify-content: center; padding: 0.6rem; font-size: 0.85rem; border: none; cursor: pointer;">
+        Iniciar Sesión
+      </button>
+    </form>
+
+    <div style="display: flex; align-items: center; gap: 0.8rem; margin: 0.9rem 0 0.2rem 0;">
+      <div style="flex: 1; height: 1px; background-color: var(--border-color);"></div>
+      <span style="font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase;">o ingresar con</span>
+      <div style="flex: 1; height: 1px; background-color: var(--border-color);"></div>
+    </div>
+
+    <!-- Google Login Button Below Main Login Button -->
+    <a href="{% url 'theme_dash:dashboard' %}" class="btn-google">
+      <svg width="16" height="16" viewBox="0 0 24 24">
+        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
+        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.28v3.15C3.25 21.3 7.31 24 12 24z"/>
+        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.28C.46 8.2.0 10.05.0 12s.46 3.8 1.28 5.42l4-3.15z"/>
+        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24.0 12 .0 7.31.0 3.25 2.7 1.28 6.58l4 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+      </svg>
+      Continuar con Google
+    </a>
+
+    <div style="text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">
+      ¿No tienes una cuenta aún? <a href="{% url 'theme_dash:register' %}" style="font-weight: 600;">Regístrate aquí</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
