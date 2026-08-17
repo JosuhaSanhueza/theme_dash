@@ -3,17 +3,8 @@
   <!-- Sidebar Header with OrionShield Logo -->
   <div class="sidebar-header">
     <a href="{% url 'theme_dash:dashboard' %}" class="brand-logo">
-      <!-- OrionShield SVG Logo -->
-      <svg class="brand-icon" viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" fill="url(#orion-shield-grad)"/>
-        <path d="M12 6.5l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4-2.9-2.8 4-.6 1.8-3.6z" fill="#ffffff"/>
-        <defs>
-          <linearGradient id="orion-shield-grad" x1="3" y1="2" x2="21" y2="20" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#556EE6"/>
-            <stop offset="1" stop-color="#34C38F"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <!-- OrionShield Brand Logo SVG -->
+      <img src="{% static 'theme_dash/images/favicon.svg' %}" alt="OrionShield Logo" class="brand-icon" style="width: 32px; height: 32px;">
       <span class="brand-text">OrionShield</span>
     </a>
   </div>
