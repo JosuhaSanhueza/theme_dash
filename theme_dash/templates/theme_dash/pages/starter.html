@@ -23,15 +23,13 @@
           <h6 style="color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">
             <i class="fa-solid fa-code"></i> Ejemplo de uso en tus vistas de Django:
           </h6>
-          <pre style="font-size: 0.85rem; color: var(--text-heading); background-color: var(--bg-card); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border-color); margin: 0; font-family: monospace;">{% filter force_escape %}
-{% extends "theme_dash/base.html" %}
+          <pre style="font-size: 0.85rem; color: var(--text-heading); background-color: var(--bg-card); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border-color); margin: 0; font-family: monospace;">&lt;% extends &quot;theme_dash/base.html&quot; %&gt;
 
-{% block title %} Mi Nueva Vista {% endblock %}
+&lt;% block title %&gt; Mi Nueva Vista &lt;% endblock %&gt;
 
-{% block content %}
-    <h1>¡Hola Mundo!</h1>
-{% endblock %}
-{% filterend %}</pre>
+&lt;% block content %&gt;
+    &lt;h1&gt;¡Hola Mundo!&lt;/h1&gt;
+&lt;% endblock %&gt;</pre>
         </div>
       </div>
     </div>
