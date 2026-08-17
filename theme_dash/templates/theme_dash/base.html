@@ -60,6 +60,40 @@
     </div>
   </div>
 
+  <!-- Modal Global: Visual 2FA Setup -->
+  <div class="modal-backdrop" id="two-factor-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 9999;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h5 class="modal-title"><i class="fa-solid fa-shield-halved text-warning"></i> Autenticación de Dos Factores (2FA)</h5>
+        <button class="modal-close" onclick="closeModal('two-factor-modal')">&times;</button>
+      </div>
+      <div class="modal-body" style="text-align: center;">
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Escanea el código QR desde tu aplicación autenticadora (Google Authenticator, Authy o 1Password).
+        </p>
+
+        <!-- Mock QR Code visual -->
+        <div style="display: inline-block; padding: 0.8rem; background-color: #ffffff; border-radius: var(--radius); border: 1px solid var(--border-color); margin-bottom: 1rem;">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=otpauth://totp/OrionShield:admin@empresa.com?secret=ORIONSHIELD2FASECRETKEY&issuer=OrionShield" alt="2FA QR Code" style="width: 140px; height: 140px; display: block;">
+        </div>
+
+        <div class="form-group" style="text-align: left; margin-top: 0.5rem;">
+          <label class="form-label" style="font-size: 0.8rem;">Código de Verificación (6 dígitos)</label>
+          <input type="text" class="form-control" placeholder="123456" maxlength="6" style="text-align: center; font-weight: 700; letter-spacing: 0.2em; font-size: 1rem;">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="form-control" style="width: auto;" onclick="closeModal('two-factor-modal')">Cancelar</button>
+        <button class="badge badge-success" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('two-factor-modal')">Activar 2FA</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+  </script>
+
   <!-- Chart.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   

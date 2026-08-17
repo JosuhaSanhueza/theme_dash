@@ -261,39 +261,80 @@
     </div>
     <div class="modal-footer">
       <button class="form-control" style="width: auto;" onclick="closeModal('edit-user-modal')">Cancelar</button>
-      <button class="badge badge-primary" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('edit-user-modal')">Guardar Cambios</button>
+      <button class="badge badge-primary" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('edit-user-modal'); openModal('confirm-save-modal');">Guardar Cambios</button>
     </div>
   </div>
 </div>
 
-<!-- Modal 3: Confirmar Eliminación -->
-<div class="modal-backdrop" id="delete-user-modal">
+<!-- Modal 2B: Confirmación de Guardado -->
+<div class="modal-backdrop" id="confirm-save-modal">
   <div class="modal-dialog">
     <div class="modal-header">
-      <h5 class="modal-title text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Confirmar Eliminación</h5>
-      <button class="modal-close" onclick="closeModal('delete-user-modal')">&times;</button>
+      <h5 class="modal-title text-success"><i class="fa-solid fa-circle-check"></i> Confirmar Guardado de Cambios</h5>
+      <button class="modal-close" onclick="closeModal('confirm-save-modal')">&times;</button>
     </div>
     <div class="modal-body">
       <p style="color: var(--text-heading); font-size: 0.9rem;">
-        ¿Estás seguro de que deseas eliminar este usuario del sistema?
+        ¿Deseas aplicar y guardar las modificaciones realizadas al usuario <strong>Josuha Developer</strong>?
       </p>
       <small class="text-muted" style="display: block; margin-top: 0.5rem;">
-        Esta acción revocará los permisos de acceso inmediatamente y quedará registrada en la Auditoría de Logs.
+        Los nuevos permisos y rol de seguridad entrarán en efecto de forma inmediata.
       </small>
     </div>
     <div class="modal-footer">
+      <button class="form-control" style="width: auto;" onclick="closeModal('confirm-save-modal'); openModal('edit-user-modal');">Volver</button>
+      <button class="badge badge-success" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('confirm-save-modal')">Sí, Confirmar & Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3: Confirmar Eliminación con Verificación de Nombre de Usuario -->
+<div class="modal-backdrop" id="delete-user-modal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h5 class="modal-title text-danger"><i class="fa-solid fa-triangle-exclamation"></i> Confirmar Eliminación de Usuario</h5>
+      <button class="modal-close" onclick="closeModal('delete-user-modal')">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p style="color: var(--text-heading); font-size: 0.9rem; margin-bottom: 0.75rem;">
+        ¿Estás completamente seguro de que deseas eliminar a este usuario del sistema?
+      </p>
+      
+      <div style="background-color: var(--danger-subtle); padding: 0.75rem; border-radius: var(--radius); border: 1px solid var(--danger); margin-bottom: 1rem;">
+        <small style="color: var(--danger); font-weight: 600; display: block;">
+          Para confirmar la eliminación, ingresa el nombre de usuario a eliminar: <strong id="delete-username-target">Josuha Developer</strong>
+        </small>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 0;">
+        <label class="form-label" style="font-size: 0.8rem;">Nombre de Usuario</label>
+        <input type="text" class="form-control" id="delete-username-input" placeholder="Escribe 'Josuha Developer' aquí" oninput="validateDeleteUsername()">
+      </div>
+    </div>
+    <div class="modal-footer">
       <button class="form-control" style="width: auto;" onclick="closeModal('delete-user-modal')">Cancelar</button>
-      <button class="badge badge-danger" style="padding: 0.6rem 1.2rem; border: none; cursor: pointer;" onclick="closeModal('delete-user-modal')">Eliminar Definitivamente</button>
+      <button class="badge badge-danger" id="btn-confirm-delete" disabled style="padding: 0.6rem 1.2rem; border: none; cursor: not-allowed; opacity: 0.5;" onclick="closeModal('delete-user-modal')">Eliminar Definitivamente</button>
     </div>
   </div>
 </div>
 
 <script>
-  function openModal(id) {
-    document.getElementById(id).classList.add('show');
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('show');
+  function validateDeleteUsername() {
+    const input = document.getElementById('delete-username-input');
+    const btn = document.getElementById('btn-confirm-delete');
+    const target = document.getElementById('delete-username-target').innerText.trim();
+
+    if (input && btn) {
+      if (input.value.trim() === target) {
+        btn.disabled = false;
+        btn.style.cursor = 'pointer';
+        btn.style.opacity = '1';
+      } else {
+        btn.disabled = true;
+        btn.style.cursor = 'not-allowed';
+        btn.style.opacity = '0.5';
+      }
+    }
   }
 </script>
 {% endblock %}
