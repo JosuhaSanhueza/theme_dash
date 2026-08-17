@@ -1,23 +1,23 @@
 {% load static %}
-<header class="topbar">
+<header class="topbar" role="banner">
   <div class="topbar-left">
     <!-- Global Search Bar -->
     <div class="search-box">
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
-      <input type="text" placeholder="Buscar en el sistema...">
+      <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
+      <input type="text" placeholder="Buscar en el sistema..." aria-label="Buscar en el sistema">
     </div>
   </div>
 
   <div class="topbar-right">
     <!-- Dark / Light Theme Toggle -->
-    <button class="btn-icon" id="theme-toggle-btn" title="Cambiar Modo Claro/Oscuro">
-      <i class="fa-solid fa-moon theme-icon"></i>
+    <button class="btn-icon" id="theme-toggle-btn" title="Cambiar Modo Claro/Oscuro" aria-label="Cambiar tema de color">
+      <i class="fa-solid fa-moon theme-icon" aria-hidden="true"></i>
     </button>
 
     <!-- Notifications Dropdown -->
     <div class="topbar-item">
-      <button class="btn-icon" data-toggle="dropdown" data-target="notifications-dropdown" title="Notificaciones">
-        <i class="fa-regular fa-bell"></i>
+      <button class="btn-icon" data-toggle="dropdown" data-target="notifications-dropdown" title="Notificaciones" aria-label="Ver notificaciones">
+        <i class="fa-regular fa-bell" aria-hidden="true"></i>
         <span class="badge-counter">3</span>
       </button>
 

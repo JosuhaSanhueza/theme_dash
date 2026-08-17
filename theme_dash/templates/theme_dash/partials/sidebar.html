@@ -1,10 +1,10 @@
 {% load static %}
-<aside class="vertical-menu">
+<aside class="vertical-menu" role="navigation" aria-label="Menú de navegación principal">
   <!-- Sidebar Header with OrionShield Logo -->
   <div class="sidebar-header">
-    <a href="{% url 'theme_dash:dashboard' %}" class="brand-logo">
+    <a href="{% url 'theme_dash:dashboard' %}" class="brand-logo" aria-label="OrionShield SaaS Inicio">
       <!-- OrionShield Brand Logo SVG -->
-      <svg class="brand-icon" viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg class="brand-icon" viewBox="0 0 24 24" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <path d="M12 2L3 6v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V6l-9-4z" fill="url(#orion-shield-grad)"/>
         <path d="M12 6.5l1.8 3.6 4 .6-2.9 2.8.7 4-3.6-1.9-3.6 1.9.7-4-2.9-2.8 4-.6 1.8-3.6z" fill="#ffffff"/>
         <defs>
@@ -24,14 +24,14 @@
       
       <li class="menu-item {% if active_menu == 'dashboard' %}active{% endif %}">
         <a href="{% url 'theme_dash:dashboard' %}" class="menu-link" title="Dashboard SaaS">
-          <i class="fa-solid fa-house menu-icon"></i>
+          <i class="fa-solid fa-house menu-icon" aria-hidden="true"></i>
           <span>Dashboard SaaS</span>
         </a>
       </li>
 
       <li class="menu-item {% if active_menu == 'analytics' %}active{% endif %}">
         <a href="{% url 'theme_dash:analytics' %}" class="menu-link" title="Analíticas">
-          <i class="fa-solid fa-chart-line menu-icon"></i>
+          <i class="fa-solid fa-chart-line menu-icon" aria-hidden="true"></i>
           <span>Analíticas</span>
         </a>
       </li>
@@ -40,14 +40,14 @@
 
       <li class="menu-item {% if active_menu == 'superadmin_users' %}active{% endif %}">
         <a href="{% url 'theme_dash:superadmin_users' %}" class="menu-link" title="Usuarios & Roles">
-          <i class="fa-solid fa-users-gear menu-icon"></i>
+          <i class="fa-solid fa-users-gear menu-icon" aria-hidden="true"></i>
           <span>Usuarios & Roles</span>
         </a>
       </li>
 
       <li class="menu-item {% if active_menu == 'superadmin_logs' %}active{% endif %}">
         <a href="{% url 'theme_dash:superadmin_logs' %}" class="menu-link" title="Auditoría de Logs">
-          <i class="fa-solid fa-shield-cat menu-icon"></i>
+          <i class="fa-solid fa-shield-cat menu-icon" aria-hidden="true"></i>
           <span>Auditoría de Logs</span>
         </a>
       </li>
@@ -56,7 +56,7 @@
 
       <li class="menu-item {% if active_menu == 'projects' %}active{% endif %}">
         <a href="{% url 'theme_dash:projects' %}" class="menu-link" title="Proyectos & Clientes">
-          <i class="fa-solid fa-diagram-project menu-icon"></i>
+          <i class="fa-solid fa-diagram-project menu-icon" aria-hidden="true"></i>
           <span>Proyectos & Clientes</span>
         </a>
       </li>
@@ -65,37 +65,37 @@
 
       <li class="menu-item {% if active_menu == 'tables' %}active{% endif %}">
         <a href="{% url 'theme_dash:tables' %}" class="menu-link" title="Tablas de Datos">
-          <i class="fa-solid fa-table-cells menu-icon"></i>
+          <i class="fa-solid fa-table-cells menu-icon" aria-hidden="true"></i>
           <span>Tablas de Datos</span>
         </a>
       </li>
 
       <li class="menu-item {% if active_menu == 'forms' %}active{% endif %}">
         <a href="{% url 'theme_dash:forms' %}" class="menu-link" title="Formularios & Ajustes">
-          <i class="fa-solid fa-sliders menu-icon"></i>
+          <i class="fa-solid fa-sliders menu-icon" aria-hidden="true"></i>
           <span>Formularios & Ajustes</span>
         </a>
       </li>
 
       <li class="menu-item {% if active_menu == 'starter' %}active{% endif %}">
         <a href="{% url 'theme_dash:starter' %}" class="menu-link" title="Página Starter">
-          <i class="fa-regular fa-file menu-icon"></i>
+          <i class="fa-regular fa-file menu-icon" aria-hidden="true"></i>
           <span>Página Starter (En Blanco)</span>
         </a>
       </li>
     </ul>
 
     <!-- Button 'Ver Más' / Scroll down inside sidebar menu -->
-    <button class="btn-sidebar-more" id="btn-sidebar-more" title="Ver más opciones">
-      <i class="fa-solid fa-chevron-down"></i>
+    <button class="btn-sidebar-more" id="btn-sidebar-more" aria-label="Ver más opciones del menú">
+      <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
       <span class="more-text">Ver más</span>
     </button>
   </div>
 
   <!-- Sidebar Footer with Bottom Toggle Button -->
   <div class="sidebar-footer">
-    <button class="btn-sidebar-toggle" id="sidebar-toggle" title="Contraer/Expandir Menú">
-      <i class="fa-solid fa-indent toggle-icon"></i>
+    <button class="btn-sidebar-toggle" id="sidebar-toggle" aria-label="Contraer o expandir el menú lateral">
+      <i class="fa-solid fa-indent toggle-icon" aria-hidden="true"></i>
       <span class="toggle-text">Contraer Menú</span>
     </button>
   </div>
