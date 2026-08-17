@@ -27,10 +27,19 @@
           <div class="form-group">
             <label class="form-label">Zona Horaria Predeterminada</label>
             <select class="form-control">
-              <option>(UTC-05:00) Bogotá, Lima, Quito, Santiago</option>
-              <option>(UTC-04:00) Caracas, La Paz</option>
-              <option>(UTC-03:00) Buenos Aires, Montevideo</option>
-              <option>(UTC+00:00) Tiempo Universal Coordinado</option>
+              <option value="America/Santiago" selected>(UTC-03:00 / UTC-04:00) Chile - Santiago (America/Santiago)</option>
+              <option value="America/Argentina/Buenos_Aires">(UTC-03:00) Argentina - Buenos Aires</option>
+              <option value="America/La_Paz">(UTC-04:00) Bolivia - La Paz</option>
+              <option value="America/Sao_Paulo">(UTC-03:00) Brasil - São Paulo / Brasilia</option>
+              <option value="America/Bogota">(UTC-05:00) Colombia - Bogotá</option>
+              <option value="America/Guayaquil">(UTC-05:00) Ecuador - Quito / Guayaquil</option>
+              <option value="America/Asuncion">(UTC-03:00 / UTC-04:00) Paraguay - Asunción</option>
+              <option value="America/Lima">(UTC-05:00) Perú - Lima</option>
+              <option value="America/Paramaribo">(UTC-03:00) Surinam - Paramaribo</option>
+              <option value="America/Montevideo">(UTC-03:00) Uruguay - Montevideo</option>
+              <option value="America/Caracas">(UTC-04:00) Venezuela - Caracas</option>
+              <option value="America/Cayenne">(UTC-03:00) Guayana Francesa - Cayenne</option>
+              <option value="America/Guyana">(UTC-04:00) Guyana - Georgetown</option>
             </select>
           </div>
 
@@ -88,14 +97,25 @@
 
         <div class="form-group mt-4">
           <label class="form-label">Subir Logotipo de la Empresa</label>
-          <div style="border: 2px dashed var(--border-color); border-radius: var(--radius); padding: 2rem; text-align: center; background-color: var(--bg-body); cursor: pointer;">
+          <input type="file" id="company-logo-input" accept="image/png, image/jpeg, image/svg+xml" style="display: none;" onchange="handleLogoSelect(this)">
+          <div onclick="document.getElementById('company-logo-input').click();" style="border: 2px dashed var(--border-color); border-radius: var(--radius); padding: 2rem; text-align: center; background-color: var(--bg-body); cursor: pointer; transition: border-color 0.2s;">
             <i class="fa-solid fa-cloud-arrow-up" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem;"></i>
-            <div style="font-weight: 600; color: var(--text-heading);">Arrastra y suelta tu archivo aquí</div>
-            <small class="text-muted">Soporta PNG, SVG, JPG (Máx. 2MB)</small>
+            <div style="font-weight: 600; color: var(--text-heading);" id="logo-dropzone-title">Haz clic aquí para seleccionar o arrastra tu archivo</div>
+            <small class="text-muted" id="logo-dropzone-subtitle">Soporta PNG, SVG, JPG (Máx. 2MB)</small>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  function handleLogoSelect(input) {
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      document.getElementById('logo-dropzone-title').innerText = 'Archivo Seleccionado: ' + file.name;
+      document.getElementById('logo-dropzone-subtitle').innerText = (file.size / 1024).toFixed(1) + ' KB - Listo para guardar';
+    }
+  }
+</script>
 {% endblock %}
