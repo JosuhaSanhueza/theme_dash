@@ -15,21 +15,23 @@
       </div>
       <div class="card-body">
         <p class="text-muted">
-          Esta es una plantilla completamente en blanco estructurada con la grilla y estilos del tema Skote.
+          Esta es una plantilla completamente en blanco estructurada con la grilla y estilos del tema OrionShield.
           Puedes copiar este archivo para crear cualquier nueva vista en tu aplicación Django.
         </p>
         
         <div style="padding: 1.5rem; background-color: var(--primary-subtle); border-radius: var(--radius); border: 1px dashed var(--primary); margin-top: 1rem;">
           <h6 style="color: var(--primary); font-weight: 700; margin-bottom: 0.5rem;">
-            <i class="fa-solid fa-code"></i> Cómo usar en tus vistas de Django:
+            <i class="fa-solid fa-code"></i> Ejemplo de uso en tus vistas de Django:
           </h6>
-          <code style="font-size: 0.85rem; color: var(--text-heading);">
-            {% filter force_escape %}{% extends "theme_dash/base.html" %}
-{% block title %}Mi Nueva Funcionalidad{% endblock %}
+          <pre style="font-size: 0.85rem; color: var(--text-heading); background-color: var(--bg-card); padding: 1rem; border-radius: var(--radius); border: 1px solid var(--border-color); margin: 0; font-family: monospace;">{% filter force_escape %}
+{% extends "theme_dash/base.html" %}
+
+{% block title %} Mi Nueva Vista {% endblock %}
+
 {% block content %}
-    <!-- Agrega aquí tu código HTML y modelos de Django -->
-{% endblock %}{% endfilter %}
-          </code>
+    <h1>¡Hola Mundo!</h1>
+{% endblock %}
+{% filterend %}</pre>
         </div>
       </div>
     </div>
