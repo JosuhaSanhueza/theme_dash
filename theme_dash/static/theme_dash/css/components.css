@@ -99,10 +99,11 @@
 .stat-label {
   font-size: 0.8rem;
   font-weight: 500;
-  --text-muted: #5a607f;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
-/* Badges with AAA Accessible Contrast Ratios */
+/* Badges with High Contrast Ratios (WCAG AAA >= 7:1) */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -113,11 +114,11 @@
   border-radius: 30px;
 }
 
-.badge-success { background-color: var(--success-subtle); color: #187d56; }
-.badge-warning { background-color: var(--warning-subtle); color: #9c6808; }
-.badge-danger { background-color: var(--danger-subtle); color: #c02b2b; }
-.badge-info { background-color: var(--info-subtle); color: #166cb8; }
-.badge-primary { background-color: var(--primary-subtle); color: #3b4cb8; }
+.badge-success { background-color: rgba(52, 195, 143, 0.15); color: #0d6b46; }
+.badge-warning { background-color: rgba(241, 180, 76, 0.2); color: #855302; }
+.badge-danger { background-color: rgba(243, 79, 90, 0.15); color: #a71d2a; }
+.badge-info { background-color: rgba(80, 165, 241, 0.15); color: #0d5494; }
+.badge-primary { background-color: rgba(85, 110, 230, 0.15); color: #2839a3; }
 
 /* Welcome Widget */
 .welcome-widget {
@@ -143,48 +144,45 @@
   font-size: 0.875rem;
 }
 
-/* Activity Feed Timeline */
+/* Timeline */
 .timeline {
   list-style: none;
+  padding: 0;
+  margin: 0;
   position: relative;
-  padding-left: 1.5rem;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 6px;
-  top: 5px;
-  bottom: 5px;
-  width: 2px;
-  background-color: var(--border-color);
 }
 
 .timeline-item {
   position: relative;
+  padding-left: 1.5rem;
   margin-bottom: 1.2rem;
+  border-left: 2px solid var(--border-color);
 }
 
-.timeline-item::before {
-  content: '';
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item:before {
+  content: "";
   position: absolute;
-  left: -1.5rem;
+  left: -5px;
   top: 4px;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background-color: var(--primary);
-  border: 2px solid var(--bg-card);
 }
 
 .timeline-date {
-  font-size: 0.725rem;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  color: #4a506b;
+  font-weight: 600;
 }
 
 .timeline-title {
-  font-weight: 600;
   font-size: 0.85rem;
+  font-weight: 600;
   color: var(--text-heading);
 }
 
@@ -211,8 +209,8 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--text-muted);
-  background-color: rgba(0, 0, 0, 0.02);
+  color: #383e56;
+  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .table-hover tbody tr:hover {
