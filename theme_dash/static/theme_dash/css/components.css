@@ -10,6 +10,8 @@
   box-shadow: var(--shadow-sm);
   margin-bottom: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background-color var(--transition-speed) ease;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .card:hover {
@@ -33,6 +35,8 @@
 
 .card-body {
   padding: 1.25rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Page Header & Breadcrumbs */
