@@ -15,18 +15,18 @@
       <div class="card-body">
         <form>
           <div class="form-group">
-            <label class="form-label">Nombre de la Aplicación</label>
-            <input type="text" class="form-control" value="MiPlataforma SaaS Pro">
+            <label for="app-name-input" class="form-label">Nombre de la Aplicación</label>
+            <input type="text" id="app-name-input" name="app_name" class="form-control" value="MiPlataforma SaaS Pro">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Correo de Soporte Técnico</label>
-            <input type="email" class="form-control" value="soporte@miplataforma.com">
+            <label for="support-email-input" class="form-label">Correo de Soporte Técnico</label>
+            <input type="email" id="support-email-input" name="support_email" class="form-control" value="soporte@miplataforma.com">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Zona Horaria Predeterminada</label>
-            <select class="form-control">
+            <label for="timezone-select" class="form-label">Zona Horaria Predeterminada</label>
+            <select id="timezone-select" name="timezone" class="form-control">
               <option value="America/Santiago" selected>(UTC-03:00 / UTC-04:00) Chile - Santiago (America/Santiago)</option>
               <option value="America/Argentina/Buenos_Aires">(UTC-03:00) Argentina - Buenos Aires</option>
               <option value="America/La_Paz">(UTC-04:00) Bolivia - La Paz</option>
@@ -44,8 +44,8 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label">Descripción del Servicio</label>
-            <textarea class="form-control" rows="3">Plataforma integral de gestión de proyectos y facturación SaaS para empresas en crecimiento.</textarea>
+            <label for="service-description-input" class="form-label">Descripción del Servicio</label>
+            <textarea id="service-description-input" name="service_description" class="form-control" rows="3">Plataforma integral de gestión de proyectos y facturación SaaS para empresas en crecimiento.</textarea>
           </div>
 
           <button type="button" class="badge badge-primary" style="padding: 0.6rem 1.4rem; font-size: 0.85rem; border: none; cursor: pointer;">

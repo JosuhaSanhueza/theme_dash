@@ -174,20 +174,20 @@
     <div class="modal-body">
       <form id="create-user-form">
         <div class="form-group">
-          <label class="form-label">Nombre Completo</label>
-          <input type="text" class="form-control" placeholder="Ej. Roberto Fernández" required>
+          <label for="create-fullname-input" class="form-label">Nombre Completo</label>
+          <input type="text" id="create-fullname-input" name="fullname" class="form-control" placeholder="Ej. Roberto Fernández" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" placeholder="roberto@empresa.com" required>
+          <label for="create-email-input" class="form-label">Correo Electrónico</label>
+          <input type="email" id="create-email-input" name="email" class="form-control" placeholder="roberto@empresa.com" required>
         </div>
 
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <label class="form-label">Rol Asignado</label>
-              <select class="form-control">
+              <label for="create-role-select" class="form-label">Rol Asignado</label>
+              <select id="create-role-select" name="role" class="form-control">
                 <option value="superadmin">SuperAdmin</option>
                 <option value="admin">Admin Tenant</option>
                 <option value="editor" selected>Editor</option>
@@ -197,8 +197,8 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label class="form-label">Estado Inicial</label>
-              <select class="form-control">
+              <label for="create-status-select" class="form-label">Estado Inicial</label>
+              <select id="create-status-select" name="status" class="form-control">
                 <option value="active">Activo</option>
                 <option value="pending">Pendiente</option>
               </select>
@@ -207,8 +207,8 @@
         </div>
 
         <div class="form-group">
-          <label class="form-label">Contraseña Temporal</label>
-          <input type="password" class="form-control" placeholder="••••••••" required value="Temporal123!">
+          <label for="create-password-input" class="form-label">Contraseña Temporal</label>
+          <input type="password" id="create-password-input" name="password" class="form-control" placeholder="••••••••" required value="Temporal123!">
         </div>
       </form>
     </div>
@@ -229,13 +229,13 @@
     <div class="modal-body">
       <form>
         <div class="form-group">
-          <label class="form-label">Usuario</label>
-          <input type="text" class="form-control" value="Josuha Developer" readonly style="background-color: var(--bg-body);">
+          <label for="edit-username-input" class="form-label">Usuario</label>
+          <input type="text" id="edit-username-input" name="username" class="form-control" value="Josuha Developer" readonly style="background-color: var(--bg-body);">
         </div>
 
         <div class="form-group">
-          <label class="form-label">Rol de Seguridad (RBAC)</label>
-          <select class="form-control">
+          <label for="edit-role-select" class="form-label">Rol de Seguridad (RBAC)</label>
+          <select id="edit-role-select" name="role" class="form-control">
             <option value="superadmin" selected>SuperAdmin (Acceso Total)</option>
             <option value="admin">Admin Tenant (Gestión Local)</option>
             <option value="editor">Editor (Crear / Modificar)</option>
@@ -247,13 +247,13 @@
           <label class="form-label">Permisos Especiales</label>
           <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.4rem;">
             <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
-              <input type="checkbox" checked> Acceso a Auditoría de Logs
+              <input type="checkbox" name="perm_logs" checked> Acceso a Auditoría de Logs
             </label>
             <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
-              <input type="checkbox" checked> Exportación de Reportes PDF/CSV
+              <input type="checkbox" name="perm_reports" checked> Exportación de Reportes PDF/CSV
             </label>
             <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
-              <input type="checkbox" checked> Modificación de Ajustes Globales
+              <input type="checkbox" name="perm_settings" checked> Modificación de Ajustes Globales
             </label>
           </div>
         </div>
@@ -307,8 +307,8 @@
       </div>
 
       <div class="form-group" style="margin-bottom: 0;">
-        <label class="form-label" style="font-size: 0.8rem;">Nombre de Usuario</label>
-        <input type="text" class="form-control" id="delete-username-input" placeholder="Escribe 'Josuha Developer' aquí" oninput="validateDeleteUsername()">
+        <label for="delete-username-input" class="form-label" style="font-size: 0.8rem;">Nombre de Usuario</label>
+        <input type="text" class="form-control" id="delete-username-input" name="delete_username" placeholder="Escribe 'Josuha Developer' aquí" oninput="validateDeleteUsername()">
       </div>
     </div>
     <div class="modal-footer">
