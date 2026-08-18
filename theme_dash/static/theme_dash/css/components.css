@@ -420,17 +420,19 @@ input:checked + .slider:before {
   color: var(--text-heading);
 }
 
-.modal-body {
-  padding: 1.5rem;
+/* Table responsive overflow wrapper rule */
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 0.5rem;
 }
 
-.modal-footer {
-  padding: 1rem 1.5rem;
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.6rem;
-  background-color: rgba(0, 0, 0, 0.02);
+.table-responsive table {
+  width: 100%;
+  margin-bottom: 0;
+  white-space: nowrap;
 }
 
 /* Mobile Responsive Component Styles */
@@ -477,6 +479,31 @@ input:checked + .slider:before {
 
   .col-12[style*="display: flex"] > div {
     flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .col-12[style*="display: flex"] input {
+    width: 100% !important;
+  }
+
+  /* Card Header mobile layout stack */
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.8rem;
+  }
+
+  .card-header > div {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  /* Pagination footer mobile layout */
+  div[style*="justify-content: space-between"][style*="margin-top: 1.5rem"],
+  div[style*="justify-content: space-between"][style*="margin-top: 1rem"] {
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-start !important;
   }
 }
 

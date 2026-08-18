@@ -552,6 +552,7 @@ body.sidebar-collapsed .menu-link {
   .vertical-menu {
     transform: translateX(-100%);
     box-shadow: var(--shadow-md);
+    z-index: 1005;
   }
 
   body.sidebar-mobile-open .vertical-menu {
@@ -559,10 +560,43 @@ body.sidebar-collapsed .menu-link {
     width: var(--sidebar-width) !important;
   }
 
+  /* Force display of text & icons when mobile hamburger menu is open, ignoring desktop collapsed mode */
+  body.sidebar-mobile-open .brand-text {
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline-block !important;
+  }
+
+  body.sidebar-mobile-open .menu-title {
+    opacity: 1 !important;
+    height: auto !important;
+    padding: 0.8rem 1.25rem 0.4rem !important;
+    margin: 0 !important;
+  }
+
+  body.sidebar-mobile-open .menu-link span,
+  body.sidebar-mobile-open .arrow-icon,
+  body.sidebar-mobile-open .toggle-text {
+    opacity: 1 !important;
+    width: auto !important;
+    display: inline-block !important;
+  }
+
+  body.sidebar-mobile-open .menu-link {
+    justify-content: flex-start !important;
+    padding: 0.7rem 1.25rem !important;
+  }
+
+  body.sidebar-mobile-open .sidebar-header {
+    padding: 0 1.25rem !important;
+    justify-content: flex-start !important;
+  }
+
   /* Show Backdrop Overlay when Sidebar is open on Mobile */
   body.sidebar-mobile-open .sidebar-overlay {
     display: block;
     opacity: 1;
+    z-index: 1004;
   }
 
   /* Topbar Adjustments */
