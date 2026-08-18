@@ -433,3 +433,50 @@ input:checked + .slider:before {
   background-color: rgba(0, 0, 0, 0.02);
 }
 
+/* Mobile Responsive Component Styles */
+@media (max-width: 768px) {
+  .modal-dialog {
+    margin: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+
+  .modal-header, .modal-body, .modal-footer {
+    padding: 1rem;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .modal-footer button {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  /* Table horizontal scroll wrapper */
+  .table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Welcome Widget Banner Mobile */
+  .welcome-widget {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  /* Filter bar wrapper responsive wrap */
+  .col-12[style*="display: flex"] {
+    flex-direction: column;
+    align-items: stretch !important;
+    gap: 0.8rem;
+  }
+
+  .col-12[style*="display: flex"] > div {
+    flex-wrap: wrap;
+  }
+}
+

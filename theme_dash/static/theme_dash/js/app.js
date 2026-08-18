@@ -71,6 +71,32 @@ function initSidebar() {
     });
   }
 
+  // Mobile Hamburger Toggle & Backdrop Overlay
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      document.body.classList.toggle('sidebar-mobile-open');
+    });
+  }
+
+  if (sidebarOverlay) {
+    sidebarOverlay.addEventListener('click', () => {
+      document.body.classList.remove('sidebar-mobile-open');
+    });
+  }
+
+  // Close mobile sidebar on menu link click
+  const navLinks = document.querySelectorAll('.sidebar-menu .menu-link:not([data-toggle="submenu"])');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('sidebar-mobile-open');
+    });
+  });
+
   // Ver Más scroll handler & dynamic visibility for sidebar menu
   const btnSidebarMore = document.getElementById('btn-sidebar-more');
   const sidebarWrapper = document.getElementById('sidebar-menu-wrapper');

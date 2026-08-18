@@ -518,18 +518,117 @@ body.sidebar-collapsed .menu-link {
   padding: 0.9rem 0;
 }
 
-/* Responsive adjustments */
+/* Mobile Hamburger Toggle Button - Hidden on Desktop */
+.mobile-menu-btn {
+  display: none;
+}
+
+/* Sidebar Backdrop Overlay for Mobile */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Mobile & Tablet Optimization)
+   ========================================================================== */
+
 @media (max-width: 992px) {
+  /* Show Hamburger Button */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  /* Off-canvas Sidebar for Mobile */
   .vertical-menu {
     transform: translateX(-100%);
+    box-shadow: var(--shadow-md);
   }
+
+  body.sidebar-mobile-open .vertical-menu {
+    transform: translateX(0);
+    width: var(--sidebar-width) !important;
+  }
+
+  /* Show Backdrop Overlay when Sidebar is open on Mobile */
+  body.sidebar-mobile-open .sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+
+  /* Topbar Adjustments */
   .topbar {
     left: 0 !important;
+    padding: 0 1rem;
   }
+
+  /* Main Content Margin Reset */
   .main-content {
     margin-left: 0 !important;
   }
-  body.sidebar-open .vertical-menu {
-    transform: translateX(0);
+
+  /* Prevent Body Scroll when Mobile Sidebar is open */
+  body.sidebar-mobile-open {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1rem;
+  }
+
+  /* Responsive Search Input */
+  .search-box input {
+    width: 140px;
+  }
+  
+  .search-box input:focus {
+    width: 170px;
+  }
+
+  /* Topbar Spacing & User Profile */
+  .topbar-left {
+    gap: 0.5rem;
+  }
+
+  .topbar-right {
+    gap: 0.4rem;
+  }
+
+  .user-name {
+    display: none; /* Hide username text on mobile, keep avatar */
+  }
+
+  /* Responsive Grid Adjustments */
+  .row {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+  }
+
+  [class*="col-"] {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .search-box {
+    display: none; /* Hide search box on extra small screens to preserve topbar space */
+  }
+
+  .page-title-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 }
