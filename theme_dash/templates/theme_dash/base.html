@@ -102,10 +102,10 @@
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
   </script>
 
-  <!-- Local Chart.js Library & Minified Theme Scripts -->
-  <script src="{% static 'theme_dash/js/chart.min.js' %}"></script>
-  <script src="{% static 'theme_dash/js/app.min.js' %}"></script>
-  <script src="{% static 'theme_dash/js/charts.min.js' %}"></script>
+  <!-- Local Chart.js Library & Minified Theme Scripts (Deferred to unblock render) -->
+  <script src="{% static 'theme_dash/js/chart.min.js' %}" defer></script>
+  <script src="{% static 'theme_dash/js/app.min.js' %}" defer></script>
+  <script src="{% static 'theme_dash/js/charts.min.js' %}" defer></script>
   
   {% block extra_js %}{% endblock %}
 </body>
