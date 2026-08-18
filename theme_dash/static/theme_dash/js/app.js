@@ -65,9 +65,14 @@ function initSidebar() {
       e.preventDefault();
       e.stopPropagation();
       
-      const isCollapsed = document.body.classList.toggle('sidebar-collapsed');
-      localStorage.setItem('orion_sidebar', isCollapsed ? 'collapsed' : 'expanded');
-      updateToggleIcon(isCollapsed);
+      // On mobile screens (< 992px), clicking Contraer Menú closes the mobile drawer
+      if (window.innerWidth < 992) {
+        document.body.classList.remove('sidebar-mobile-open');
+      } else {
+        const isCollapsed = document.body.classList.toggle('sidebar-collapsed');
+        localStorage.setItem('orion_sidebar', isCollapsed ? 'collapsed' : 'expanded');
+        updateToggleIcon(isCollapsed);
+      }
     });
   }
 

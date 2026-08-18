@@ -555,9 +555,12 @@ body.sidebar-collapsed .menu-link {
     z-index: 1005;
   }
 
-  /* Hide bottom sidebar collapse button on mobile (hamburger menu & backdrop handle opening/closing) */
+  /* Ensure bottom sidebar footer remains visible on mobile */
   .sidebar-footer {
-    display: none !important;
+    display: flex !important;
+    padding: 0.8rem 1.25rem !important;
+    justify-content: flex-start !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   body.sidebar-mobile-open .vertical-menu {
