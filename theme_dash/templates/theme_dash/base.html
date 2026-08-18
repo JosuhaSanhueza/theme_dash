@@ -12,12 +12,13 @@
   <link rel="shortcut icon" href="{% static 'theme_dash/images/favicon.svg' %}">
   <link rel="manifest" href="{% static 'theme_dash/site.webmanifest' %}">
 
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Local Inter Font & FontAwesome Icons -->
+  <link rel="stylesheet" href="{% static 'theme_dash/css/inter.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/fontawesome.min.css' %}">
   
-  <!-- Theme Core Stylesheets -->
-  <link rel="stylesheet" href="{% static 'theme_dash/css/main.css' %}">
-  <link rel="stylesheet" href="{% static 'theme_dash/css/components.css' %}">
+  <!-- Theme Core Minified Stylesheets -->
+  <link rel="stylesheet" href="{% static 'theme_dash/css/main.min.css' %}">
+  <link rel="stylesheet" href="{% static 'theme_dash/css/components.min.css' %}">
   
   <!-- Inline script to set saved sidebar and theme states BEFORE render to prevent F5 flicker -->
   <script>
@@ -97,12 +98,10 @@
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
   </script>
 
-  <!-- Chart.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <!-- Theme Core Scripts -->
-  <script src="{% static 'theme_dash/js/app.js' %}"></script>
-  <script src="{% static 'theme_dash/js/charts.js' %}"></script>
+  <!-- Local Chart.js Library & Minified Theme Scripts -->
+  <script src="{% static 'theme_dash/js/chart.min.js' %}"></script>
+  <script src="{% static 'theme_dash/js/app.min.js' %}"></script>
+  <script src="{% static 'theme_dash/js/charts.min.js' %}"></script>
   
   {% block extra_js %}{% endblock %}
 </body>

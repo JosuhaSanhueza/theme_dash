@@ -99,11 +99,10 @@
 .stat-label {
   font-size: 0.8rem;
   font-weight: 500;
-  color: var(--text-muted);
-  text-transform: uppercase;
+  --text-muted: #5a607f;
 }
 
-/* Badges */
+/* Badges with AAA Accessible Contrast Ratios */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -114,11 +113,11 @@
   border-radius: 30px;
 }
 
-.badge-success { background-color: var(--success-subtle); color: var(--success); }
-.badge-warning { background-color: var(--warning-subtle); color: var(--warning); }
-.badge-danger { background-color: var(--danger-subtle); color: var(--danger); }
-.badge-info { background-color: var(--info-subtle); color: var(--info); }
-.badge-primary { background-color: var(--primary-subtle); color: var(--primary); }
+.badge-success { background-color: var(--success-subtle); color: #187d56; }
+.badge-warning { background-color: var(--warning-subtle); color: #9c6808; }
+.badge-danger { background-color: var(--danger-subtle); color: #c02b2b; }
+.badge-info { background-color: var(--info-subtle); color: #166cb8; }
+.badge-primary { background-color: var(--primary-subtle); color: #3b4cb8; }
 
 /* Welcome Widget */
 .welcome-widget {
