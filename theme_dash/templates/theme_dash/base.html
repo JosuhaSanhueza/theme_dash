@@ -12,6 +12,10 @@
   <link rel="shortcut icon" href="{% static 'theme_dash/images/favicon.svg' %}">
   <link rel="manifest" href="{% static 'theme_dash/site.webmanifest' %}">
 
+  <!-- Preload Critical Web Fonts to eliminate rendering latency & Lighthouse warnings -->
+  <link rel="preload" href="{% static 'theme_dash/fonts/inter.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{% static 'theme_dash/webfonts/fa-solid-900.woff2' %}" as="font" type="font/woff2" crossorigin>
+
   <!-- Local Inter Font & FontAwesome Icons -->
   <link rel="stylesheet" href="{% static 'theme_dash/css/inter.css' %}">
   <link rel="stylesheet" href="{% static 'theme_dash/css/fontawesome.min.css' %}">
